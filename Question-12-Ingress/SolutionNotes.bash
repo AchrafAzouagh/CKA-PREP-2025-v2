@@ -2,7 +2,10 @@
 kubectl expose deployment echo -n echo-sound --name echo-service --type NodePort --port 8080 --target-port 8080
 kubectl get svc -n echo-sound echo-service
 
-# Create ingress
+#Declarative command to generate yaml
+kubectl create ingress echo --rule="example.org/echo=echo-service:8080" -n echo-sound --dry-run=client -o yaml > ingress.yaml
+
+# Then edit the yaml like so:
 cat <<'EOF' > ingress.yaml
 apiVersion: networking.k8s.io/v1
 kind: Ingress
