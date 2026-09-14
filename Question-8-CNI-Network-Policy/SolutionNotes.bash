@@ -11,6 +11,24 @@ kubectl -n kube-system get cm kubeadm-config -o yaml | grep -n "podSubnet"
 # or Download the custom-resources.yaml file and edit the CIDR before applying
 wget https://raw.githubusercontent.com/projectcalico/calico/v3.28.2/manifests/custom-resources.yaml
 vim custom-resources.yaml
+
+####
+apiVersion: operator.tigera.io/v1
+kind: Installation
+metadata:
+  name: default
+spec:
+  # Configures Calico networking.
+  calicoNetwork:
+    ipPools:
+    - name: default-ipv4-ippool
+      blockSize: 26
+->->  cidr: 192.168.0.0/16
+      encapsulation: VXLANCrossSubnet
+      natOutgoing: Enabled
+      nodeSelector: all()
+####
+
 # Change the CIDR in the ipPools section to match your cluster CIDR from above command, then apply
 kubectl create -f custom-resources.yaml
 
