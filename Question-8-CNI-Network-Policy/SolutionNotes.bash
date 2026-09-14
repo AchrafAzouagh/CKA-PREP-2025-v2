@@ -12,7 +12,7 @@ kubectl -n kube-system get cm kubeadm-config -o yaml | grep -n "podSubnet"
 wget https://raw.githubusercontent.com/projectcalico/calico/v3.28.2/manifests/custom-resources.yaml
 vim custom-resources.yaml
 # Change the CIDR in the ipPools section to match your cluster CIDR from above command, then apply
-kubectl apply -f custom-resources.yaml
+kubectl create -f custom-resources.yaml
 
 
 kubectl get tigerastatus
