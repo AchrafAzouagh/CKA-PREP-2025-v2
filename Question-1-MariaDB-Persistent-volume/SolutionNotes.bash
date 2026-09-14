@@ -1,4 +1,6 @@
 # Step 1: create PVC. There are 2 ways to do this. (PV is pre-reset by LabSetUp.bash)
+You will find tha Yaml in https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistentvolumeclaims
+
 cat <<'EOF' > pvc.yaml
 apiVersion: v1
 kind: PersistentVolumeClaim
