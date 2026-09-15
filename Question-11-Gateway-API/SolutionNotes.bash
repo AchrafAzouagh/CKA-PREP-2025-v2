@@ -2,6 +2,7 @@
 kubectl describe ingress web
 kubectl describe secret web-tls
 
+-> Second manifest in Gateway API doc
 # Step 2: Create Gateway (mirrors Ingress host + TLS)
 cat <<'EOF' > gw.yaml
 apiVersion: gateway.networking.k8s.io/v1
