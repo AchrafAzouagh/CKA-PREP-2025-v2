@@ -16,6 +16,7 @@ kubectl scale deployment wordpress --replicas 0
 kubectl edit deployment wordpress
 # There are 3 pods, each with 2 co-located (sidecar) containers = 6 containers total.
 # Both containers run simultaneously, so divide node resources by 6:
+#   use the command "expr" CPU or memory divided by number of containers
 #   CPU:    1000m / 6 ≈ 166m per container
 #   Memory: 1800Mi / 6 = 300Mi per container
 #
