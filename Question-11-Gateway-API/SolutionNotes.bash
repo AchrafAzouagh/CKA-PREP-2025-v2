@@ -25,6 +25,8 @@ EOF
 kubectl apply -f gw.yaml
 kubectl get gateway
 
+
+-> third manifest in gateway api doc
 # Step 3: Create HTTPRoute (mirrors Ingress rules)
 cat <<'EOF' > http.yaml
 apiVersion: gateway.networking.k8s.io/v1
