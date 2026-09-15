@@ -1,6 +1,8 @@
 # Taint node01
 kubectl taint nodes node01 PERMISSION=granted:NoSchedule
 
+Manifest is present in kube doc: pods/pod-with-toleration.yaml
+
 # Pod that tolerates the taint
 cat <<'EOF' > pod.yaml
 apiVersion: v1
